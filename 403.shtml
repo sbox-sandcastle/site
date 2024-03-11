@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Error 404 | s&castle</title>
+        <meta name="description" content="we make games and tools for s&box."/>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="twitter:title" content="s&amp;castle">
+        <meta name="twitter:description" content="we make games and tools for s&amp;box.">
+        <meta property="og:title" content="s&amp;castle">
+        <meta property="og:description" content="we make games and tools for s&amp;box.">
+        <meta property="og:url" content="https://sbox-sandcastle.github.io/">
+        <meta property="og:site_name" content="s&amp;castle">
+        <meta property="og:type" content="website">
+        <meta name="theme-color" content="#3172eb">
+        <style>
+            @font-face {
+                font-family: "Poppins";
+                font-style: normal;
+                font-weight: 400;
+                src: url(https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrJJfecg.woff2)format("woff2");
+                unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD
+            }
+            
+            body {
+                font-family: "Poppins";
+                background-color: #0c1017;
+                color: #3172eb;
+                user-select: none;
+                text-align: center
+            }
+
+            #errortext {
+                color: #ffffff;
+                text-shadow: 0.08em 0.08em #3172eb;
+                font-size: 650%;
+            }
+
+            #errortext:hover {
+                text-shadow: var(--shadowX) var(--shadowY) #3172eb;
+                transition: text-shadow 0s;
+            }
+
+            #back {
+                transition-duration: 0.4s;
+                border: 2px solid #ffffff;
+                background-color: #111111;
+                color: #ffffff;
+                border-radius: 6px;
+                font-size: 15px;
+                font-family: "Poppins";
+            }
+
+            #back:hover {
+                background-color: #ffffff;
+                color: #111111;
+            }
+
+            strong {
+                font-weight: bolder;
+            }
+        </style>
+    </head>
+    <body>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <h1><span style="font-size:650%;">Error </span><strong id="errortext">403</strong></h1>
+        <h3>Nice try, but your request is forbidden.</h3>
+        <br>
+        <button id="back" onclick="history.back()">Go back</button>
+        <script>
+            const heading = document.getElementById("errortext");
+
+            var midX, midY, touch = navigator.maxTouchPoints > 0;
+            window.onresize = () => midX = window.innerWidth / 2, midY = heading.offsetHeight / 2;
+            window.onresize();
+
+            heading.onmousemove = e => {
+            if(touch && e.type == "mousemove") return heading.onmouseleave();
+                heading.classList.add("active");
+                let x = (e.x - midX), y = (e.y - midY);
+                heading.style.setProperty("--shadowX", `${-x/8}px`);
+                heading.style.setProperty("--shadowY", `${-y/8}px`);
+            }
+            heading.onmouseleave = () => heading.classList.remove("active");
+            heading.onmouseover = () => touch = false;
+
+            heading.onpointermove = heading.onmousemove;
+            heading.onpointerup = heading.onmouseleave;
+    </script>
+    </body>
+</html>

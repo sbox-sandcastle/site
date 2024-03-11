@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>s&castle</title>
+        <meta name="description" content="we make games and tools for s&box."/>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="twitter:title" content="s&amp;castle">
+        <meta name="twitter:description" content="we make games and tools for s&amp;box.">
+        <meta property="og:title" content="s&amp;castle">
+        <meta property="og:description" content="we make games and tools for s&amp;box.">
+        <meta property="og:url" content="https://sbox-sandcastle.github.io/">
+        <meta property="og:site_name" content="s&amp;castle">
+        <meta property="og:type" content="website">
+        <meta name="theme-color" content="#3172eb">
+        <style>
+             @font-face {
+                font-family: "Poppins";
+                font-style: normal;
+                font-weight: 400;
+                src: url(https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrJJfecg.woff2)format("woff2");
+                unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD
+            }
+            
+            body {
+                font-family: "Poppins";
+                background-color: #0c1017;
+                color: #3172eb;
+                user-select: none;
+                scroll-behavior: smooth;
+                text-align: center
+            }
+
+            #headerText {
+                font-size: 10vw;
+                text-shadow:  0.05em 0.05em #fe0080, 0.09em 0.1em #4000fe;
+                transition: text-shadow 1s
+            }
+
+            #headerText:hover {
+                text-shadow: var(--shadowY) var(--shadowX) #fe0080, var(--shadowX) var(--shadowY) #4000fe;
+                transition: text-shadow 0s;
+            }
+
+            li {
+                list-style-position: inside;
+            }
+
+           a, strong {
+                color: #3232ff;
+                font-weight: bolder;
+            }
+
+            li {
+                list-style-position: inside;
+            }
+
+            code {
+                border-radius: 5px;
+                padding: 2px;
+                background-color: #0c1053
+            }
+
+            footer {
+                border-top: 2px solid rgba(37,46,63,.8);
+                padding: 2px;
+            }
+
+            #subhead {
+                overflow: hidden;
+                height: 1.5em;
+                white-space: nowrap;
+            }
+
+            .adjective {
+                display: inline-block;
+                animation: scrollAdjectives 2s linear infinite;
+                transition: width 0.5s ease-in;
+            }
+
+            .niceDiv {
+                border-top: 2px solid #fe0080;
+                color: #ffffff;
+                text-align: center;
+                width: 75%;
+                margin: auto
+            }
+
+            @keyframes scrollAdjectives {
+                0% {
+                    transform: translateY(100%);
+                }
+                100% {
+                    transform: translateY(-100%);
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <h1 id="headerText">s&castle</h1>
+        <h3 id="subhead">we make <span class="adjective"></span> games and tools for s&amp;box</h3>
+        <div class="niceDiv">
+            <h2>projects</h2>
+            <ul>
+                <li><a href="https://sbox-sandcastle.github.io/qxxst-keygen/">Qxxst's keygen</a>, the recommended choice for sandbox key generation tools.</li>
+                <li><a href="https://keys.skadz.online/keygen">Skadz's keygen</a>, the original sandbox key generator.</li>
+                <li>Some <strong>top secret</strong> games 🤫</li>
+            </ul>
+        </div>
+        <br>
+        <div class="niceDiv">
+            <h2>team</h2>
+            <ul>
+                <li><a href="https://github.com/skadz108">Skadz</a></li>
+                <li><a href="https://github.com/qxxst">Qxxst</a></li>
+                <li><a href="https://discord.com/users/218493917035888641">blued</a></li>
+                <li><a href="https://discord.com/users/154411126602465280">EpiK</a></li>
+                <li><a href="https://discord.com/users/539105233507450889">uzermack</a></a></li>
+                <li><a href="https://discord.com/users/868739604969291777">ToxicToast</a></li>
+            </ul>
+        </div>
+        <br>
+        <br>
+        <footer>&copy; s&amp;castle. All rights reserved in a secret safe, but the code is <code>7163</code> if you need to steal something.<br>All trademarks are property of their respective owners in the United States and other countries.<br><br>Website designed with ❤️ by <a href="https://github.com/skadz108">Skadz</a>.</footer>
+        <script>
+            const adjectives = ['fun', 'cool', 'nice', 'good', 's&box'];
+            const adjectiveElement = document.querySelector('.adjective');
+
+            let currentIndex = 0;
+
+            function updateAdjective() {
+                adjectiveElement.textContent = adjectives[currentIndex];
+                currentIndex = (currentIndex + 1) % adjectives.length;
+            }
+
+            function handleAnimationIteration() {
+                updateAdjective();
+            }
+
+            updateAdjective(); // Initially set the first adjective
+            adjectiveElement.addEventListener('animationiteration', handleAnimationIteration);
+        </script>
+        <script>
+            const heading = document.getElementById('headerText');
+    
+            var midX, midY, touch = navigator.maxTouchPoints > 0;
+            window.onresize = () => midX = window.innerWidth / 2, midY = heading.offsetHeight / 2;
+            window.onresize();
+    
+            heading.onmousemove = e => {
+            if(touch && e.type == "mousemove") return heading.onmouseleave();
+            heading.classList.add("active");
+            let x = (e.x - midX), y = (e.y - midY);
+            heading.style.setProperty("--shadowY", `${-x/8}px`);
+            heading.style.setProperty("--shadowX", `${-y/8}px`);
+            }
+            heading.onmouseleave = () => heading.classList.remove("active");
+            heading.onmouseover = () => touch = false;
+    
+            heading.onpointermove = heading.onmousemove;
+            heading.onpointerup = heading.onmouseleave;
+        </script>
+    </body>
+</html>
